@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculation Of Free Units</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+background-image: url("current.jpg");
+background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  
+
+    }
+
+    h1,h2 {
+      text-align: center;
+      padding: 20px;
+      
+      color: cyan;
+    }
+#bg{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0%;
+    margin: 0px;
+}
+    form {
+        margin: 10px;
+      border: 3px solid red;
+      padding: 20px;
+      padding-right: 40px;
+      display: grid;
+	grid-template: repeat(5, 3fr) / repeat(4, 3fr);
+    }
+
+    label {
+      margin-bottom: 5px;
+      color: cyan;
+      font-weight: bolder;
+      font-size: larger;
+    }
+
+    
+    input[type="number"] {
+      width: 80px;
+      padding: 5px;
+      
+      cursor: pointer;
+      margin-bottom: 10px;
+      background-color: gray;
+      color: rgb(85, 244, 130);
+      font-weight: bolder;
+      font-size: x-large;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #result {
+      font-size: 18px;
+      text-align: center;
+      border: 3px solid rgb(48, 214, 229);
+      margin: 20px;
+      padding: 25px;
+    }
+    h2{
+        background-color: crimson;
+        color: black;
+    }
+    #res{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    h6{
+        text-align: center;
+        color: greenyellow;
+    }
+  </style>
+  
+</head>
+<body>
+  <div id="bg">
+  <h1>Calculation Of Free Units</h1>
+  <h6>Developed by Royal Tech Kannada Youtube Channel</h6>
+  <h2>Fill past 12 months Units used and click Calculate</h2>
+  <form class="col-sm">
+    <label for="input1">Unit 1:</label>
+    <input type="number" id="input1" />
+    <label for="input2">Unit 2:</label>
+    <input type="number" id="input2" />
+    <label for="input3">Unit 3:</label>
+    <input type="number" id="input3" />
+    <label for="input4">Unit 4:</label>
+    <input type="number" id="input4" />
+    <label for="input5">Unit 5:</label>
+    <input type="number" id="input5" />
+    <label for="input6">Unit 6:</label>
+    <input type="number" id="input6" />
+    <label for="input7">Unit 7:</label>
+    <input type="number" id="input7" />
+    <label for="input8">Unit 8:</label>
+    <input type="number" id="input8" />
+    <label for="input9">Unit 9:</label>
+    <input type="number" id="input9" />
+    <label for="input10">Unit 10:</label>
+    <input type="number" id="input10" />
+    <label for="input11">Unit 11:</label>
+    <input type="number" id="input11" />
+    <label for="input12">Unit 12:</label>
+    <input type="number" id="input12" />
+    
+
+    <!-- Repeat the above two lines for inputs 3 to 12 -->
+    
+    <button type="button" onclick="calculateAverage()">Calculate</button>
+  </form>
+  
+  <h2>Total Units you can Use:-</h2>
+  <div id="res">
+    <div id="result">
+    
+    </div>
+  </div>
+</div>
+<script>
+    function calculateAverage() {
+      var inputs = document.getElementsByTagName('input');
+      var sum = 0;
+      
+      for (var i = 0; i < inputs.length; i++) {
+        if(inputs[i].value=="")
+        {
+            alert("Fill all details and calculate again");
+            return;
+        }
+        else{
+            sum += parseInt(inputs[i].value);
+        }
+        
+      }
+      
+      var average = sum / inputs.length;
+      var finalValue = average + (average * 0.1);
+      
+      if(finalValue<200)
+      {
+          document.getElementById('result').textContent ="😀🎉Enjoy free current upto " + finalValue.toFixed(2) + " units";
+       
+      document.getElementById('result').style.backgroundColor="green";
+      }
+      else{
+        document.getElementById('result').style.backgroundColor="red";
+        document.getElementById('result').textContent = "Average units used is " + finalValue.toFixed(2) + "\n which exceeds 200 units 😕🙁";
+      
+      }
+    }
+  </script>
+</body>
+</html>
